@@ -37,14 +37,35 @@ var teamVoyager = [
 {"Category":"NeedsTherapy", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
 {"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
 
+var teamDannysaurs = [
+{"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
+{"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"}, 
+{"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
+
+var teamProspector = [
+{"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
+{"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
+
 class SwiperPage extends Component{
   constructor(props) {
         super(props);
         this.state = {
-            teamName: this.props.username
+            teamName: this.props.teamName
         };
     }
 
+
+    getTeamData() {
+      console.log(this.state.teamName);
+      switch(this.state.teamName){
+        case "Dannysaurs":
+          return teamDannysaurs;
+        case "Prospector":
+          return teamProspector;
+        case "Voyager":
+          return teamVoyager;
+      }
+    }
 
   getRandomStyle() {
       var backgroundColorArray = ["#92BBD9","#EBD4C1","#EBC1D1","#C4ECCC","#E2C1EB","#97CAE5","#9DD6EB","#364551","#92D9AF","#F1E1D5","#5DBD3D"];
@@ -53,15 +74,19 @@ class SwiperPage extends Component{
   }
 
 	render() {
+          console.log(this.state.teamName);
+
       var rows = [];
-      for (var i=0; i < teamVoyager.length; i++) {
-        var photoUrl = "https://raw.githubusercontent.com/adamhmc/Chatter/master/src/photo/"+teamVoyager[i]["UserId"]+".jpg";
+      var teamData = this.getTeamData();
+      console.log(teamData);
+      for (var i=0; i < teamData.length; i++) {
+        var photoUrl = "https://raw.githubusercontent.com/adamhmc/Chatter/master/src/photo/"+teamData[i]["UserId"]+".jpg";
         var bgColor = this.getRandomStyle();
         rows.push(
           <View style={[ styles.slide1, {backgroundColor:bgColor}]} key={i}>
-          <Text>{teamVoyager[i]["Category"]}</Text>
+          <Text>{teamData[i]["Category"]}</Text>
           <Image source={{uri: photoUrl}} style={styles.photo}/>
-          <Text>{teamVoyager[i]["UserName"]}</Text>
+          <Text>{teamData[i]["UserName"]}</Text>
           </View>
         );
       }    
