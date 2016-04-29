@@ -21,9 +21,8 @@ var styles = StyleSheet.create({
   },
 
   text: {
-    fontFamily: 'Mf Sippin On Sunshine',
-    color: 'black',
-    fontSize: 45,
+    color: '#fff',
+    fontSize: 30,
     fontWeight: 'bold',
   },
   photo: {
@@ -35,17 +34,23 @@ var styles = StyleSheet.create({
 var teamVoyager = [
 {"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
 {"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"}, 
-{"Category":"NeedsTherapy", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
-{"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
+{"Category":"AOGSuperStar", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
+{"Category":"GoGreenUser", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"},
+{"Category":"SuperHero", "UserName": "Aleksey Kolesnik", "UserId":"005B0000000FEG7IAO"}];
 
 var teamDannysaurs = [
-{"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
-{"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"}, 
-{"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
+{"Category":"Celebrity", "UserName": "Victoria Lyon", "UserId":"005B0000000EsoRIAS"},
+{"Category":"ChatterBox", "UserName": "Victoria Lyon", "UserId":"005B0000000EsoRIAS"}, 
+{"Category":"AOGSuperStar", "UserName": "Clifford Ker", "UserId":"005B0000000ELeEIAW"},
+{"Category":"GoGreenUser", "UserName": "Sarvani Jandhyala", "UserId":"005B0000000Fs0KIAS"},
+{"Category":"SuperHero", "UserName": "Parth Vaishnav", "UserId":"005B0000000gaFHIAY"}];
 
 var teamProspector = [
-{"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
-{"Category":"Works For Home", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"}];
+{"Category":"Celebrity", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
+{"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
+{"Category":"AOGSuperStar", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"},
+{"Category":"GoGreenUser", "UserName": "Pallavi Savla", "UserId":"005B0000000EfqwIAC"},
+{"Category":"SuperHero", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"}];
 
 class SwiperPage extends Component{
   constructor(props) {
@@ -75,21 +80,22 @@ class SwiperPage extends Component{
   }
 
 	render() {
+          console.log(this.state.teamName);
+
       var rows = [];
       var teamData = this.getTeamData();
       console.log(teamData);
       for (var i=0; i < teamData.length; i++) {
-        var photoUrl = "https://raw.githubusercontent.com/adamhmc/Chatter/master/src/photo/"+teamData[i]["UserId"]+".jpg";
+        var photoUrl = "https://raw.githubusercontent.com/adamhmc/Chatter/master/src/photo/"+teamData[i]["UserId"]+".jpeg";
         var bgColor = this.getRandomStyle();
         rows.push(
           <View style={[ styles.slide1, {backgroundColor:bgColor}]} key={i}>
-          <Text style={styles.text}>{teamData[i]["Category"]}</Text>
+          <Text>{teamData[i]["Category"]}</Text>
           <Image source={{uri: photoUrl}} style={styles.photo}/>
           <Text>{teamData[i]["UserName"]}</Text>
           </View>
         );
       }    
-      
       return (
     	<View>
       <Swiper style={styles.wrapper} showsButtons={false}>
