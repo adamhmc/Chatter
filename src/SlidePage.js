@@ -55,16 +55,12 @@ class SwiperPage extends Component{
 	render() {
       var rows = [];
       for (var i=0; i < teamVoyager.length; i++) {
-        
-        var photoSrc = './photo/'+teamVoyager[i]["UserId"]+'.jpg';
-        console.log(photoSrc.toString());
-
+        var photoUrl = "https://raw.githubusercontent.com/adamhmc/Chatter/master/src/photo/"+teamVoyager[i]["UserId"]+".jpg";
         var bgColor = this.getRandomStyle();
         rows.push(
           <View style={[ styles.slide1, {backgroundColor:bgColor}]} key={i}>
           <Text>{teamVoyager[i]["Category"]}</Text>
-
-          <Image source={require('./photo/005B0000000GySKIA0.jpg')} style={styles.photo}/>
+          <Image source={{uri: photoUrl}} style={styles.photo}/>
           <Text>{teamVoyager[i]["UserName"]}</Text>
           </View>
         );
