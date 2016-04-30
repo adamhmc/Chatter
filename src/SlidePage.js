@@ -22,35 +22,38 @@ var styles = StyleSheet.create({
 
   text: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: 100,
     fontWeight: 'bold',
   },
   photo: {
-  	width:200,
-  	height:200
+    width:300,
+    height:300
   }
 })
 
 var teamVoyager = [
 {"Category":"Celebrity", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
-{"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"}, 
+{"Category":"ChatterBox", "UserName": "Priya Sethuraman", "UserId":"005B0000000F6lAIAS"}, 
 {"Category":"AOGSuperStar", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
 {"Category":"GoGreenUser", "UserName": "Terry Martin", "UserId":"005B0000000Ec00IAC"},
-{"Category":"SuperHero", "UserName": "Aleksey Kolesnik", "UserId":"005B0000000FEG7IAO"}];
+{"Category":"SuperHero", "UserName": "Aleksey Kolesnik", "UserId":"005B0000000FEG7IAO"},
+{"Category":"Creative", "UserName": "None", "UserId":"none"}];
 
 var teamDannysaurs = [
-{"Category":"Celebrity", "UserName": "Victoria Lyon", "UserId":"005B0000000EsoRIAS"},
+{"Category":"Celebrity", "UserName": "Danny Dvinov", "UserId":"005T0000000nP9DIAU"},
 {"Category":"ChatterBox", "UserName": "Victoria Lyon", "UserId":"005B0000000EsoRIAS"}, 
 {"Category":"AOGSuperStar", "UserName": "Clifford Ker", "UserId":"005B0000000ELeEIAW"},
 {"Category":"GoGreenUser", "UserName": "Sarvani Jandhyala", "UserId":"005B0000000Fs0KIAS"},
-{"Category":"SuperHero", "UserName": "Parth Vaishnav", "UserId":"005B0000000gaFHIAY"}];
+{"Category":"SuperHero", "UserName": "Parth Vaishnav", "UserId":"005B0000000gaFHIAY"},
+{"Category":"Creative", "UserName": "Tripti Sheth", "UserId":"005T0000000nSPP"}];
 
 var teamProspector = [
 {"Category":"Celebrity", "UserName": "Rob Storrs", "UserId":"005B0000000GySKIA0"},
 {"Category":"ChatterBox", "UserName": "Brian Luc", "UserId":"005B0000000EO4DIAW"},
-{"Category":"AOGSuperStar", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"},
+{"Category":"AOGSuperStar", "UserName": "Margaret Cyrzan", "UserId":"005B0000000YvXCIA0"},
 {"Category":"GoGreenUser", "UserName": "Pallavi Savla", "UserId":"005B0000000EfqwIAC"},
-{"Category":"SuperHero", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"}];
+{"Category":"SuperHero", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"},
+{"Category":"Creative", "UserName": "Amrit Singh", "UserId":"005B0000000h1qZIAQ"}];
 
 class SwiperPage extends Component{
   constructor(props) {
@@ -79,7 +82,7 @@ class SwiperPage extends Component{
     return backgroundColorArray[colorIndex];
   }
 
-	render() {
+  render() {
           console.log(this.state.teamName);
 
       var rows = [];
@@ -97,7 +100,7 @@ class SwiperPage extends Component{
         );
       }    
       return (
-    	<View>
+      <View>
       <Swiper style={styles.wrapper} showsButtons={false}>
         {rows}
       </Swiper>
