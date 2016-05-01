@@ -35,7 +35,7 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <MenuContext style={{ flex: 1 }} ref="MenuContext">
+      <MenuContext style={{ flex: 1, flexDirection:'row', alignItems:'center', justifyContent:'center' }} ref="MenuContext">
         <View style={styles.content}>
           <Text style={styles.contentText}>
             Pick your scrum team
@@ -69,8 +69,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 20,
     paddingBottom: 30,
-    borderBottomWidth: 1,
-    borderColor: '#ccc'
   },
   contentText: {
     fontSize: 18
