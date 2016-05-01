@@ -20,11 +20,18 @@ var styles = StyleSheet.create({
     backgroundColor: '#9DD6EB',
   },
 
-  text: {
-    color: '#fff',
-    fontSize: 100,
+  category: {
+    color: 'black',
+    fontSize: 40,
     fontWeight: 'bold',
+    fontFamily: 'Mf Sippin On Sunshine'
   },
+
+  userName: {
+  	fontSize: 40,
+	fontFamily: 'KaushanScript-Regular'
+  },
+
   photo: {
     width:300,
     height:300
@@ -93,9 +100,9 @@ class SwiperPage extends Component{
         var bgColor = this.getRandomStyle();
         rows.push(
           <View style={[ styles.slide1, {backgroundColor:bgColor}]} key={i}>
-          <Text>{teamData[i]["Category"]}</Text>
+          <Text style={styles.category}>{teamData[i]["Category"]}</Text>
           <Image source={{uri: photoUrl}} style={styles.photo}/>
-          <Text>{teamData[i]["UserName"]}</Text>
+          <Text style={styles.userName}>{teamData[i]["UserName"]}</Text>
           </View>
         );
       }    
